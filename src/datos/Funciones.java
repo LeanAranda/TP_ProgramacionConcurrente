@@ -7,7 +7,8 @@ public class Funciones {
 	public static void mostrarArray(int arr[]) {
 		int n = arr.length;
 		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i]+" ");
+			//System.out.print(arr[i]+" ");
+			System.out.println(arr[i]);
 		}
 		System.out.println();
 	}

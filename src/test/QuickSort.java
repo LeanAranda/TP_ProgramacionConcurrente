@@ -1,5 +1,7 @@
 package test;
 
+import datos.Funciones;
+
 //Java program for implementation of QuickSort
 public class QuickSort
 {
@@ -68,14 +70,15 @@ public class QuickSort
 	// Driver program
 	public static void main(String args[])
 	{
-		int arr[] = {10, 7, 8, 9, 1, 5};
-		int n = arr.length;
-
+		int n = 15;
+		int arr[] = new int[n];
+		Funciones.cargarArrayAleatorio(arr, 1, 1000);
+		
 		QuickSort ob = new QuickSort();
 		ob.sort(arr, 0, n-1);
 
 		System.out.println("sorted array");
-		printArray(arr);
+		Funciones.mostrarArray(arr);
 	}
 }
 /*This code is contributed by Rajat Mishra */

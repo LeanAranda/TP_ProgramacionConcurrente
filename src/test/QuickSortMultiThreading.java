@@ -13,6 +13,8 @@ import java.util.Scanner;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
+import datos.Funciones;
+
 @SuppressWarnings("serial")
 public class QuickSortMultiThreading extends RecursiveTask<Integer> {
 
@@ -99,25 +101,12 @@ public class QuickSortMultiThreading extends RecursiveTask<Integer> {
  }
 
  // Driver Code
- @SuppressWarnings("resource")
 public static void main(String args[]) {
-     Scanner scanner = new Scanner(System.in);
-
-     // Read the size of the array from STDIN
-     int n = scanner.nextInt();
-
-     // Handle the case for an empty or single-element array
-     if (n <= 0) {
-         System.out.println("Array is empty or contains only one element.");
-         return;
-     }
-
+	 
+	 int n = 15;
      int[] arr = new int[n];
 
-     // Read the elements of the array from STDIN
-     for (int i = 0; i < n; i++) {
-         arr[i] = scanner.nextInt();
-     }
+     Funciones.cargarArrayAleatorio(arr, 1, 1000);
 
      // ForkJoin ThreadPool to keep
      // thread creation as per resources
@@ -128,8 +117,7 @@ public static void main(String args[]) {
      pool.invoke(new QuickSortMultiThreading(0, n - 1, arr));
 
      // Print sorted elements
-     for (int i = 0; i < n; i++)
-         System.out.print(arr[i] + " ");       
-     scanner.close();
+     System.out.println("sorted array");
+     Funciones.mostrarArray(arr);
  }
 }
