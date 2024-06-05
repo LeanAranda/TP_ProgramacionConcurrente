@@ -45,6 +45,14 @@ public class QuickSort
 	high --> Ending index */
 	void sort(int arr[], int low, int high)
 	{
+		/*
+		try {
+			Thread.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		*/
+		
 		if (low < high)
 		{
 			/* pi is partitioning index, arr[pi] is 
@@ -57,28 +65,25 @@ public class QuickSort
 			sort(arr, pi+1, high);
 		}
 	}
-
-	/* A utility function to print array of size n */
-	static void printArray(int arr[])
-	{
-		int n = arr.length;
-		for (int i=0; i<n; ++i)
-			System.out.print(arr[i]+" ");
-		System.out.println();
-	}
+	
 
 	// Driver program
 	public static void main(String args[])
 	{
-		int n = 15;
+		int n = 10000;
 		int arr[] = new int[n];
 		Funciones.cargarArrayAleatorio(arr, 1, 1000);
 		
+		double tiempoInicial = System.nanoTime();
+		
 		QuickSort ob = new QuickSort();
 		ob.sort(arr, 0, n-1);
+		
+		double tiempoFinal = System.nanoTime() - tiempoInicial;
 
 		System.out.println("sorted array");
-		Funciones.mostrarArray(arr);
+		System.out.println("Tiempo tardado: " + tiempoFinal/1000000);
+		//Funciones.mostrarArray(arr);
 	}
 }
 /*This code is contributed by Rajat Mishra */

@@ -74,6 +74,16 @@ public class QuickSortMultiThreading extends RecursiveTask<Integer> {
 
  @Override
  protected Integer compute() {
+	
+	/*
+	try {
+		Thread.sleep(1);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	*/
+	 
      // Base case for null safety
      if (start >= end || arr == null || arr.length == 0)
          return null;
@@ -103,11 +113,13 @@ public class QuickSortMultiThreading extends RecursiveTask<Integer> {
  // Driver Code
 public static void main(String args[]) {
 	 
-	 int n = 15;
+	 int n = 10000;
      int[] arr = new int[n];
 
      Funciones.cargarArrayAleatorio(arr, 1, 1000);
 
+     double tiempoInicial = System.nanoTime();
+     
      // ForkJoin ThreadPool to keep
      // thread creation as per resources
      ForkJoinPool pool = ForkJoinPool.commonPool();
@@ -116,8 +128,11 @@ public static void main(String args[]) {
      // join pool for range 0, n-1
      pool.invoke(new QuickSortMultiThreading(0, n - 1, arr));
 
+     double tiempoFinal = System.nanoTime() - tiempoInicial;
+     
      // Print sorted elements
      System.out.println("sorted array");
-     Funciones.mostrarArray(arr);
+     System.out.println("Tiempo tardado: " + tiempoFinal/1000000);
+     //Funciones.mostrarArray(arr);
  }
 }
