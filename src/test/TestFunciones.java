@@ -2,9 +2,12 @@ package test;
 
 import datos.Funciones;
 
-public class Test {
+/* Test de prueba de la clase funciones */
+
+public class TestFunciones {
 
 	public static void main(String[] args) {
+		
 		int tam = 10;
 		int array[] = new int[tam];
 		
