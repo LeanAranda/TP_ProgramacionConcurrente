@@ -101,5 +101,5 @@ public class QuickSort
 		//Funciones.mostrarArray(arr);
 	}
 }
-// Código de Rajat Mishra (geeksforgeeks.org)
+// Código proporcionado por geeksforgeeks.org
 // Modificado por Leandro Aranda

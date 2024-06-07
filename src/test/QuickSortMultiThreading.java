@@ -153,5 +153,5 @@ public class QuickSortMultiThreading extends RecursiveTask<Integer> {
 		//Funciones.mostrarArray(arr);
 	}
 }
-// Código de venkys.io
+// Código proporcionado por venkys.io
 // Modificado por Leandro Aranda
