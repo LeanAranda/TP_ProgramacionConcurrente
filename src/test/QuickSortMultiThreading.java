@@ -10,7 +10,8 @@ import datos.Funciones;
 
 @SuppressWarnings("serial")
 // Clase que implementa quicksort
-// Extiende de la clase RecursiveTask para poder trabajar con hilos
+// Extiende de la clase RecursiveTask para poder dividir las tareas en subtareas
+// esto combinado con ForkJoin, que nos permite trabajar con hilos, logra la concurrencia
 public class QuickSortMultiThreading extends RecursiveTask<Integer> {
 
 	// Tiene como atributos un array y sus posiciones inicio y final
@@ -81,7 +82,8 @@ public class QuickSortMultiThreading extends RecursiveTask<Integer> {
 	}
 
 	// Similar al método Thread.run, es la función que se va a ejecutar al lanzar un hilo
-	// Utilizada en este caso como función principal de ordenamiento
+	// o en este caso, una subtarea
+	// Utilizada como función principal de ordenamiento
 	@Override
 	protected Integer compute() {
 		
@@ -132,7 +134,7 @@ public class QuickSortMultiThreading extends RecursiveTask<Integer> {
 
 		double tiempoInicial = System.nanoTime();	// Tiempo inicial
 
-		// Utilizamos ForkJoin para la creación de hilos a medida que se necesitan
+		// Utilizamos ForkJoinPool para la creación de hilos a medida que se necesitan
 		ForkJoinPool pool = ForkJoinPool.commonPool();
 
 		// Instanciamos la clase
