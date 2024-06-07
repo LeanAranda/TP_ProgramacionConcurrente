@@ -1,8 +1,6 @@
 package test;
 
-import java.io.*;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
